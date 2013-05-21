@@ -79,7 +79,7 @@ mongo.connect(mongoUri, {}, function(error, db) {
 			protocol: 'http',
 			hostname: request.host,
 			port: port,
-			pathname: request.originalUrl + '/' + simulationId + '/data'}));
+			pathname: request.originalUrl + '/' + simulationId}));
 		response.send(201, {bodies:[{
             radius:1,
             xyz_position: {x:5, y:0, z:0},
@@ -105,7 +105,7 @@ mongo.connect(mongoUri, {}, function(error, db) {
 	});
 
 	// Serve up simulation data
-	app.get('/metasim/:version/simulations/:id/data', function(request, response) {
+	app.get('/metasim/:version/simulations/:id', function(request, response) {
 		response.send({bodies:[{
             radius:1,
             xyz_position: {x:5, y:0, z:0},
